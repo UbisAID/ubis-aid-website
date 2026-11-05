@@ -1,0 +1,58 @@
+# Builds the static site and deploys it to GitHub Pages on the custom domain
+# https://ubisaid.se (Settings → Pages → Source must be "GitHub Actions").
+name: Deploy ubisaid.se (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      STATIC_EXPORT: "1"
+      NEXT_PUBLIC_SITE_URL: https://ubisaid.se
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Remove server-only features for static hosting
+        run: node scripts/prepare-static-export.mjs
+
+      - name: Build static site
+        run: npx next build
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+
+      - name: Add GitHub Pages files
+        run: node scripts/finish-static-export.mjs && cp CNAME out/CNAME
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
