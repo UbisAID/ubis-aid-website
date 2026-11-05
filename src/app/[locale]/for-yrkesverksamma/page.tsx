@@ -6,7 +6,6 @@ import { resolveLocale } from "@/i18n/resolve";
 import { getData, tr, type Training } from "@/lib/content";
 import { buildMetadata, JsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
-import { submitBooking } from "@/lib/forms/actions";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHeader } from "@/components/sections/page-header";
 import { Container, Section, SectionHeading } from "@/components/sections/primitives";
@@ -163,7 +162,7 @@ export default async function ProfessionalsPage({ params }: PageProps<"/[locale]
           </div>
           <FormShell
             id="booking"
-            action={submitBooking}
+            form="booking"
             locale={locale}
             labels={{ ...dict.forms, successTitle: t.success.title, successText: t.success.text }}
             submitLabel={f.submit}

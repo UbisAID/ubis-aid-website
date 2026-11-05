@@ -7,6 +7,7 @@ import { getNews } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { withBase } from "@/lib/base-path";
 import { PageHeader } from "@/components/sections/page-header";
 import { Container, Section, SectionHeading } from "@/components/sections/primitives";
 
@@ -110,7 +111,7 @@ export default async function PressPage({ params }: PageProps<"/[locale]/om-oss/
                 {t.assetsTitle}
               </h2>
               <a
-                href="/brand/ubis-aid-logo.png"
+                href={withBase("/brand/ubis-aid-logo.png")}
                 download
                 className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full bg-muted px-4 font-semibold hover:bg-border"
               >

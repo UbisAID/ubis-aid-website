@@ -7,6 +7,7 @@ import { resolveLocale } from "@/i18n/resolve";
 import { getData, tr, type Person, type Report } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { withBase } from "@/lib/base-path";
 import { PageHeader } from "@/components/sections/page-header";
 import { Container, Section, SectionHeading } from "@/components/sections/primitives";
 import { Photo } from "@/components/sections/photo";
@@ -199,7 +200,7 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/om-oss"
                     <span className="font-semibold">{tr(r.title, locale)}</span>
                   </span>
                   <a
-                    href={r.file}
+                    href={withBase(r.file)}
                     download
                     className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full bg-muted px-4 font-semibold hover:bg-border"
                   >

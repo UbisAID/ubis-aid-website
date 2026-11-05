@@ -1,8 +1,14 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "next/og";
-import { isLocale } from "@/i18n/config";
+import { isLocale, locales } from "@/i18n/config";
 import { site } from "@/lib/site";
+
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const alt = site.name;
 export const size = { width: 1200, height: 630 };

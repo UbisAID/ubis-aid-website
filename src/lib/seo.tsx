@@ -40,7 +40,13 @@ export function buildMetadata({
       locale: ogLocale[locale],
     },
     twitter: { card: "summary_large_image", title, description },
-    robots: noIndex ? { index: false, follow: true } : undefined,
+    // The GitHub Pages client preview is never indexed.
+    robots:
+      process.env.NEXT_PUBLIC_PREVIEW === "1"
+        ? { index: false, follow: false }
+        : noIndex
+          ? { index: false, follow: true }
+          : undefined,
   };
 }
 

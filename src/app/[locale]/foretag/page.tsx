@@ -4,7 +4,6 @@ import { localePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { resolveLocale } from "@/i18n/resolve";
 import { buildMetadata } from "@/lib/seo";
-import { submitPartner } from "@/lib/forms/actions";
 import { cn } from "@/lib/utils";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHeader } from "@/components/sections/page-header";
@@ -233,7 +232,7 @@ export default async function CompaniesPage({ params }: PageProps<"/[locale]/for
           </div>
           <FormShell
             id="partner"
-            action={submitPartner}
+            form="partner"
             locale={locale}
             labels={{ ...dict.forms, successTitle: t.success.title, successText: t.success.text }}
             submitLabel={f.submit}

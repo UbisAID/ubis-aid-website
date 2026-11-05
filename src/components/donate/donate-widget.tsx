@@ -5,6 +5,7 @@ import { QRCodeSVG } from "qrcode.react";
 import { CreditCard, Heart, Loader2, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { withBase } from "@/lib/base-path";
 
 export type DonateCopy = {
   title: string;
@@ -94,7 +95,7 @@ export function DonateWidget({
     if (!valid) return;
     setStatus("loading");
     try {
-      const res = await fetch("/api/checkout", {
+      const res = await fetch(withBase("/api/checkout"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -104,7 +105,8 @@ export function DonateWidget({
           tribute: tribute ? { type: tributeType, honoree, message, recipient } : undefined,
         }),
       });
-      if (res.status === 503) return setStatus("unavailable");
+      // 503: Stripe not configured. 404/405: static preview without a server.
+      if ([503, 404, 405].includes(res.status)) return setStatus("unavailable");
       const data = (await res.json()) as { url?: string };
       if (!res.ok || !data.url) return setStatus("error");
       window.location.assign(data.url);

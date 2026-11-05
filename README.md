@@ -133,6 +133,16 @@ QR-koden använder Swish ”prefilled”-format (`C<nummer>;<belopp>;<meddelande
 
 Sidorna uppdateras vid varje deploy.
 
+## Förhandsvisning för kunder (GitHub Pages)
+
+Varje push till `main` bygger en statisk förhandsvisning och publicerar den på
+**https://ubisaid.github.io/ubis-aid-preview/** (workflow: `.github/workflows/preview.yml`).
+
+- Källkoden stannar i det privata repot. Bara de färdiga filerna publiceras i det publika repot `UbisAID/ubis-aid-preview`.
+- I förhandsvisningen validerar formulären men skickar ingenting, kortbetalning är avstängd och sidan är dold för sökmotorer.
+- Byggsteget kör `STATIC_EXPORT=1` (se `next.config.ts`) och skripten i `scripts/`. Kör inte `scripts/prepare-static-export.mjs` lokalt – det tar bort filer.
+- Secrets i det privata repot: `PREVIEW_DEPLOY_KEY` (krävs) och `PEXELS_API_KEY` (valfri).
+
 ## Innan lansering
 
 - [ ] Ersätt alla `[PLATSHÅLLARE]` i `src/lib/site.ts` (adress, Swish, plusgiro, öppettider, sociala länkar).

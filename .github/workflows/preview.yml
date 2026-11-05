@@ -1,0 +1,77 @@
+# Builds a static client preview and publishes it to the public repo
+# UbisAID/ubis-aid-preview, served by GitHub Pages at
+# https://ubisaid.github.io/ubis-aid-preview/
+#
+# The source code stays in this private repo; only the built HTML/CSS/JS is
+# published. Forms validate but send nothing, card payment is disabled and the
+# preview is hidden from search engines.
+#
+# Secrets (repo settings → Secrets and variables → Actions):
+#   PREVIEW_DEPLOY_KEY  private SSH key; its public half is a write deploy key
+#                       on UbisAID/ubis-aid-preview
+#   PEXELS_API_KEY      optional; without it photos fall back to placeholders
+name: Client preview (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: client-preview
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      STATIC_EXPORT: "1"
+      NEXT_PUBLIC_PREVIEW: "1"
+      NEXT_PUBLIC_BASE_PATH: /ubis-aid-preview
+      NEXT_PUBLIC_SITE_URL: https://ubisaid.github.io/ubis-aid-preview
+      # Skip quietly until the deploy key secret has been added.
+      HAS_DEPLOY_KEY: ${{ secrets.PREVIEW_DEPLOY_KEY != '' }}
+    steps:
+      - name: Deploy key missing – skipping
+        if: env.HAS_DEPLOY_KEY != 'true'
+        run: echo "::notice::Add the PREVIEW_DEPLOY_KEY secret to publish the client preview (see README)."
+
+      - uses: actions/checkout@v4
+        if: env.HAS_DEPLOY_KEY == 'true'
+
+      - uses: actions/setup-node@v4
+        if: env.HAS_DEPLOY_KEY == 'true'
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+        if: env.HAS_DEPLOY_KEY == 'true'
+
+      - name: Remove server-only features for static hosting
+        if: env.HAS_DEPLOY_KEY == 'true'
+        run: node scripts/prepare-static-export.mjs
+
+      - name: Build static site
+        if: env.HAS_DEPLOY_KEY == 'true'
+        run: npx next build
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+
+      - name: Add GitHub Pages files
+        if: env.HAS_DEPLOY_KEY == 'true'
+        run: node scripts/finish-static-export.mjs
+
+      - name: Publish to UbisAID/ubis-aid-preview
+        if: env.HAS_DEPLOY_KEY == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.PREVIEW_DEPLOY_KEY }}
+          external_repository: UbisAID/ubis-aid-preview
+          publish_branch: main
+          publish_dir: ./out
+          force_orphan: true
+          enable_jekyll: false
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          full_commit_message: "Preview build from ${{ github.sha }}"

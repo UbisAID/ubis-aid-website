@@ -33,6 +33,8 @@ function entry(path: string, lastModified?: string, priority = 0.7): MetadataRou
   }));
 }
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const topics = getSlugs("topics").map((slug) =>
     entry(`/amnen/${slug}`, getEntry<TopicMeta>("topics", "sv", slug)?.meta.updated, 0.8),

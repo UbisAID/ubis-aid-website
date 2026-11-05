@@ -4,7 +4,6 @@ import { localePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { resolveLocale } from "@/i18n/resolve";
 import { buildMetadata } from "@/lib/seo";
-import { submitVolunteer } from "@/lib/forms/actions";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHeader } from "@/components/sections/page-header";
 import { Container, Section, SectionHeading } from "@/components/sections/primitives";
@@ -210,7 +209,7 @@ export default async function EngagePage({ params }: PageProps<"/[locale]/engage
           </div>
           <FormShell
             id="volunteer"
-            action={submitVolunteer}
+            form="volunteer"
             locale={locale}
             labels={{ ...dict.forms, successTitle: t.success.title, successText: t.success.text }}
             submitLabel={f.submit}

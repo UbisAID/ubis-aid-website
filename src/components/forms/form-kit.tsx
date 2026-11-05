@@ -7,7 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
-import type { FormState } from "@/lib/forms/schemas";
+import type { FormName, FormState } from "@/lib/forms/schemas";
+import { submitBooking, submitPartner, submitVolunteer } from "@/lib/forms/actions";
+
+const actions = { volunteer: submitVolunteer, booking: submitBooking, partner: submitPartner } satisfies Record<
+  FormName,
+  (prev: FormState, data: FormData) => Promise<FormState>
+>;
 
 export type FormLabels = {
   required: string;
@@ -46,7 +52,7 @@ function valueOf(state: FormState, name: string) {
  */
 export function FormShell({
   id,
-  action,
+  form,
   locale,
   labels,
   children,
@@ -54,7 +60,8 @@ export function FormShell({
   fieldLabels,
 }: {
   id: string;
-  action: (prev: FormState, data: FormData) => Promise<FormState>;
+  /** Which form this is; picks the matching server action. */
+  form: FormName;
   locale: string;
   labels: FormLabels;
   children: React.ReactNode;
@@ -62,7 +69,7 @@ export function FormShell({
   /** Human-readable field names for the error summary. */
   fieldLabels: Record<string, string>;
 }) {
-  const [state, formAction, pending] = useActionState(action, { status: "idle" });
+  const [state, formAction, pending] = useActionState(actions[form], { status: "idle" });
   const summaryRef = useRef<HTMLDivElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
 

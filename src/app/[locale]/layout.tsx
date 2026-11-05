@@ -5,6 +5,7 @@ import "../globals.css";
 import { htmlLang, isLocale, locales, localePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { site } from "@/lib/site";
+import { withBase } from "@/lib/base-path";
 import { JsonLd, organizationJsonLd } from "@/lib/seo";
 import { ChatBanner } from "@/components/layout/chat-banner";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -55,8 +56,10 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
     title: { default: `${site.name} – ${dict.meta.tagline}`, template: `%s | ${site.name}` },
     description: dict.meta.description,
     applicationName: site.name,
-    icons: { icon: "/brand/icon-512.png", apple: "/brand/apple-icon.png" },
+    icons: { icon: withBase("/brand/icon-512.png"), apple: withBase("/brand/apple-icon.png") },
     formatDetection: { telephone: false },
+    // Keep the GitHub Pages client preview out of search results.
+    ...(process.env.NEXT_PUBLIC_PREVIEW === "1" && { robots: { index: false, follow: false } }),
   };
 }
 
