@@ -1,10 +1,15 @@
-# Builds the static site and deploys it to GitHub Pages on the custom domain
-# https://ubisaid.se (Settings → Pages → Source must be "GitHub Actions").
+# Publishes the built client preview (UbisAID/ubis-aid-preview, which has the
+# Pexels photos) on the custom domain https://ubisaid.se.
+# The preview is built with base path /ubis-aid-preview, so it is served under
+# that folder and the root redirects to /ubis-aid-preview/sv/.
+# Settings -> Pages -> Source must be "GitHub Actions".
 name: Deploy ubisaid.se (GitHub Pages)
 
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "17 */6 * * *"
   workflow_dispatch:
 
 permissions:
@@ -19,33 +24,36 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      STATIC_EXPORT: "1"
-      NEXT_PUBLIC_SITE_URL: https://ubisaid.se
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: npm
+          repository: UbisAID/ubis-aid-preview
+          path: preview
 
-      - run: npm ci
-
-      - name: Remove server-only features for static hosting
-        run: node scripts/prepare-static-export.mjs
-
-      - name: Build static site
-        run: npx next build
-        env:
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-
-      - name: Add GitHub Pages files
-        run: node scripts/finish-static-export.mjs && cp CNAME out/CNAME
+      - name: Assemble site
+        run: |
+          rm -rf preview/.git
+          mkdir site
+          mv preview site/ubis-aid-preview
+          cp site/ubis-aid-preview/404.html site/404.html
+          touch site/.nojekyll
+          echo "ubisaid.se" > site/CNAME
+          cat > site/index.html <<'HTML'
+          <!doctype html>
+          <html lang="sv">
+          <head>
+          <meta charset="utf-8">
+          <title>Ubis AID</title>
+          <script>location.replace("/ubis-aid-preview/sv/");</script>
+          <noscript><meta http-equiv="refresh" content="0; url=/ubis-aid-preview/sv/"></noscript>
+          </head>
+          <body><a href="/ubis-aid-preview/sv/">Ubis AID</a></body>
+          </html>
+          HTML
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./site
 
   deploy:
     needs: build
