@@ -1,0 +1,50 @@
+[
+  {
+    "id": "tidiga-tecken",
+    "title": { "sv": "Tidiga tecken – unga som har det svårt hemma", "en": "Early signs – young people struggling at home" },
+    "audience": { "sv": "Lärare, elevhälsa, fritidsledare", "en": "Teachers, student health, youth workers" },
+    "format": { "sv": "Föreläsning, på plats eller digitalt", "en": "Talk, on site or online" },
+    "length": { "sv": "90 minuter", "en": "90 minutes" },
+    "price": { "sv": "Från 8 500 kr", "en": "From SEK 8,500" },
+    "text": {
+      "sv": "Hur märker man att en elev far illa? Vi går igenom varningssignaler, hur man ställer frågan och vad anmälningsplikten innebär i praktiken.",
+      "en": "How do you notice a student at risk? We cover warning signs, how to ask, and what the duty to report means in practice."
+    }
+  },
+  {
+    "id": "samtalsmetodik",
+    "title": { "sv": "Det svåra samtalet", "en": "The difficult conversation" },
+    "audience": { "sv": "Skolpersonal och socialtjänst", "en": "School staff and social services" },
+    "format": { "sv": "Halvdagsutbildning med övningar", "en": "Half-day training with exercises" },
+    "length": { "sv": "3,5 timmar", "en": "3.5 hours" },
+    "price": { "sv": "Från 18 000 kr", "en": "From SEK 18,000" },
+    "text": {
+      "sv": "Praktiska verktyg för att prata med unga om våld, självskada och oro hemma – utan att stänga dörren.",
+      "en": "Practical tools for talking with young people about violence, self-harm and worries at home – without closing the door."
+    }
+  },
+  {
+    "id": "elevforelasning",
+    "title": { "sv": "Elevföreläsning: Du är inte ensam", "en": "Student talk: You are not alone" },
+    "audience": { "sv": "Elever i åk 7–9 och gymnasiet", "en": "Students aged 13–19" },
+    "format": { "sv": "Föreläsning i klassrum eller aula", "en": "Talk in classroom or hall" },
+    "length": { "sv": "60 minuter", "en": "60 minutes" },
+    "price": { "sv": "Från 6 000 kr", "en": "From SEK 6,000" },
+    "text": {
+      "sv": "En ung person med egen erfarenhet berättar tillsammans med en av våra stödpersoner. Om att be om hjälp, och om var hjälpen finns.",
+      "en": "A young person with lived experience speaks alongside one of our staff. About asking for help, and where to find it."
+    }
+  },
+  {
+    "id": "kommunprocess",
+    "title": { "sv": "Processtöd för kommuner", "en": "Process support for municipalities" },
+    "audience": { "sv": "Socialtjänst, förvaltningar, politiker", "en": "Social services, departments, politicians" },
+    "format": { "sv": "Workshopserie, anpassas efter behov", "en": "Workshop series, tailored" },
+    "length": { "sv": "3–6 tillfällen", "en": "3–6 sessions" },
+    "price": { "sv": "Offert", "en": "On quotation" },
+    "text": {
+      "sv": "Vi hjälper er bygga öppna, lättillgängliga stödinsatser för unga – med ungas egna röster i hela processen.",
+      "en": "We help you build open, accessible support services for young people – with young people's voices throughout."
+    }
+  }
+]

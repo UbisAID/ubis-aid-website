@@ -1,0 +1,20 @@
+[
+  {
+    "year": 2025,
+    "title": { "sv": "Årsredovisning och effektrapport 2025", "en": "Annual report and impact report 2025" },
+    "file": "/dokument/arsredovisning-2025.pdf",
+    "size": "PDF"
+  },
+  {
+    "year": 2024,
+    "title": { "sv": "Årsredovisning och effektrapport 2024", "en": "Annual report and impact report 2024" },
+    "file": "/dokument/arsredovisning-2024.pdf",
+    "size": "PDF"
+  },
+  {
+    "year": 2023,
+    "title": { "sv": "Årsredovisning 2023", "en": "Annual report 2023" },
+    "file": "/dokument/arsredovisning-2023.pdf",
+    "size": "PDF"
+  }
+]

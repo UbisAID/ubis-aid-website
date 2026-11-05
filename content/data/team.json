@@ -1,0 +1,35 @@
+[
+  {
+    "name": "[Förnamn Efternamn]",
+    "role": { "sv": "Verksamhetschef", "en": "Executive director" },
+    "text": { "sv": "Socionom med 15 års erfarenhet av ungdomsarbete.", "en": "Social worker with 15 years in youth work." },
+    "email": "namn@exempel.se"
+  },
+  {
+    "name": "[Förnamn Efternamn]",
+    "role": { "sv": "Stödsamordnare chatt", "en": "Chat support coordinator" },
+    "text": { "sv": "Leder kvällspassen och handleder volontärer.", "en": "Leads evening shifts and supervises volunteers." }
+  },
+  {
+    "name": "[Förnamn Efternamn]",
+    "role": { "sv": "Gruppledare Stockholm", "en": "Group leader, Stockholm" },
+    "text": { "sv": "Fritidsledare och kurator i grunden.", "en": "Youth worker and school counsellor by training." }
+  },
+  {
+    "name": "[Förnamn Efternamn]",
+    "role": { "sv": "Utbildningsansvarig", "en": "Head of training" },
+    "text": { "sv": "Håller i föreläsningar för skolor och kommuner.", "en": "Runs talks and courses for schools and municipalities." }
+  },
+  {
+    "name": "[Förnamn Efternamn]",
+    "role": { "sv": "Insamling & partnerskap", "en": "Fundraising & partnerships" },
+    "text": { "sv": "Din kontakt för gåvor och företagssamarbeten.", "en": "Your contact for gifts and corporate partnerships." },
+    "email": "givande@exempel.se"
+  },
+  {
+    "name": "[Förnamn Efternamn]",
+    "role": { "sv": "Kommunikationsansvarig", "en": "Head of communications" },
+    "text": { "sv": "Presskontakt och ansvarig för webb och sociala medier.", "en": "Press contact, web and social media." },
+    "email": "press@exempel.se"
+  }
+]

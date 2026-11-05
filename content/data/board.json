@@ -1,0 +1,8 @@
+[
+  { "name": "[Förnamn Efternamn]", "role": { "sv": "Ordförande", "en": "Chair" } },
+  { "name": "[Förnamn Efternamn]", "role": { "sv": "Vice ordförande", "en": "Vice chair" } },
+  { "name": "[Förnamn Efternamn]", "role": { "sv": "Kassör", "en": "Treasurer" } },
+  { "name": "[Förnamn Efternamn]", "role": { "sv": "Ledamot, ungdomsrepresentant", "en": "Board member, youth representative" } },
+  { "name": "[Förnamn Efternamn]", "role": { "sv": "Ledamot", "en": "Board member" } },
+  { "name": "[Förnamn Efternamn]", "role": { "sv": "Suppleant", "en": "Deputy member" } }
+]
