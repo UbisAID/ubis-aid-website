@@ -83,7 +83,6 @@ export function organizationJsonLd(locale: Locale, description: string) {
         areaServed: "SE",
       },
     ],
-    sameAs: site.social.map((s) => s.href),
   };
 }
 

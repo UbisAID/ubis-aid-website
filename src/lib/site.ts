@@ -55,12 +55,6 @@ export const site = {
     presetAmounts: [200, 300, 600],
   },
 
-  social: [
-    { label: "Instagram", href: "https://instagram.com/" },
-    { label: "TikTok", href: "https://tiktok.com/" },
-    { label: "Facebook", href: "https://facebook.com/" },
-    { label: "LinkedIn", href: "https://linkedin.com/" },
-  ],
 } as const;
 
 /**

@@ -149,7 +149,6 @@ const sv = {
     adults: "För vuxna",
     org: "Föreningen",
     contact: "Kontakt",
-    follow: "Följ oss",
     orgNr: "Org.nr",
     trustTitle: "Trygg givare",
     trustText:

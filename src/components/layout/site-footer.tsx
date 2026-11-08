@@ -74,21 +74,6 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
                 </span>
               </li>
             </ul>
-
-            <h2 className="mt-8 text-base font-semibold">{dict.footer.follow}</h2>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {site.social.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-11 items-center rounded-full border border-ink/20 bg-card px-4 text-sm font-medium hover:border-ink/40"
-                  >
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="grid gap-10 sm:grid-cols-3">

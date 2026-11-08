@@ -145,7 +145,6 @@ const en: Dictionary = {
     adults: "For adults",
     org: "The association",
     contact: "Contact",
-    follow: "Follow us",
     orgNr: "Reg. no.",
     trustTitle: "Give with confidence",
     trustText:
