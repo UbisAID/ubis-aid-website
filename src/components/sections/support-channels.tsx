@@ -10,7 +10,9 @@ import { Photo } from "./photo";
 type Schedule = { days: readonly number[]; open: string; close: string };
 
 function hours(schedule: Schedule, dict: Dictionary) {
-  const days = schedule.days.length === 7 ? dict.status.everyDay : dict.status.weekdays;
+  const weekendOnly = schedule.days.length === 2 && schedule.days.includes(0) && schedule.days.includes(6);
+  const days =
+    schedule.days.length === 7 ? dict.status.everyDay : weekendOnly ? dict.status.weekend : dict.status.weekdays;
   return `${days} ${schedule.open}–${schedule.close}`;
 }
 
@@ -58,7 +60,14 @@ export function SupportChannels({
 
   const others = [
     { key: "sms", ...c.sms, detail: site.contact.sms, href: `sms:${site.contact.smsHref}` },
-    { key: "email", ...c.email, detail: site.contact.supportEmail, href: `mailto:${site.contact.supportEmail}` },
+    {
+      key: "email",
+      ...c.email,
+      detail: dict.psychologist.cta,
+      sub: site.contact.supportEmail,
+      action: dict.psychologist.action,
+      href: `mailto:${site.contact.supportEmail}`,
+    },
     { key: "phone", ...c.phone, detail: site.contact.phone, href: `tel:${site.contact.phoneHref}` },
   ];
 
@@ -137,6 +146,11 @@ export function SupportChannels({
                     {o.name}
                   </span>
                   <span className="mt-1 block font-heading text-xl font-bold break-all sm:text-2xl">{o.detail}</span>
+                  {"sub" in o && o.sub && (
+                    <span className={cn("mt-0.5 block text-[0.95rem] break-all", dark ? "text-white/70" : "text-muted-foreground")}>
+                      {o.sub}
+                    </span>
+                  )}
                 </span>
                 <span
                   className={cn(

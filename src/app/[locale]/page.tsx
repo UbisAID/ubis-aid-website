@@ -7,8 +7,10 @@ import { resolveLocale } from "@/i18n/resolve";
 import { getStories, getTopics } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { fill } from "@/i18n/fill";
 import { ButtonLink } from "@/components/ui/button";
 import {
+  SinceMark,
   Container,
   Rich,
   Section,
@@ -73,12 +75,12 @@ const copy: Record<Locale, Copy> = {
     ctaDonate: "Stötta oss",
     promise: "Gratis · Anonymt · Vi för inget vidare",
     heroAlts: ["Unga som pratar i en trappa.", "En tonåring som ler utomhus."],
-    chatTonight: `Chatt varje kväll ${site.hours.chatLabel}`,
+    chatTonight: `Chatt lör–sön ${site.hours.chatLabel}`,
     ticker: [
       "Gratis",
       "Anonymt",
       "Utan krav",
-      `Chatt alla dagar ${site.hours.chatLabel}`,
+      `Chatt lör–sön kl. ${site.hours.chatLabel}`,
       "Sms, mejl och telefon",
       "Du bestämmer vad du berättar",
     ],
@@ -131,12 +133,12 @@ const copy: Record<Locale, Copy> = {
     ctaDonate: "Support us",
     promise: "Free · Anonymous · We don't pass it on",
     heroAlts: ["Young people talking on a staircase.", "A teenager smiling outdoors."],
-    chatTonight: `Chat every night ${site.hours.chatLabel}`,
+    chatTonight: `Chat Sat–Sun ${site.hours.chatLabel}`,
     ticker: [
       "Free",
       "Anonymous",
       "No requirements",
-      `Chat every day ${site.hours.chatLabel}`,
+      `Chat Sat–Sun ${site.hours.chatLabel}`,
       "Text, email and phone",
       "You decide what to share",
     ],
@@ -207,6 +209,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           <h1 className="text-[clamp(3.25rem,9vw,7rem)] leading-[0.95] font-extrabold tracking-[-0.045em]">
             <Rich text={t.h1} accentClassName="pr-2" />
           </h1>
+          <SinceMark label={fill(dict.since, { year: site.foundedYear })} className="mt-6" />
           <p className="mt-7 max-w-xl text-xl text-ink/80 sm:text-2xl sm:leading-snug">{t.lead}</p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href={localePath(locale, "/prata-med-oss")} size="lg">
@@ -217,7 +220,16 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               {t.ctaDonate}
             </ButtonLink>
           </div>
-          <p className="mt-7 text-[0.95rem] font-semibold text-secondary">{t.promise}</p>
+          <p className="mt-6">
+            <a
+              href={`mailto:${site.contact.email}`}
+              className="inline-flex min-h-11 items-center gap-2 border-b-2 border-primary text-lg font-semibold"
+            >
+              {dict.psychologist.cta}
+              <ArrowUpRight aria-hidden="true" className="size-5 text-primary" />
+            </a>
+          </p>
+          <p className="mt-6 text-[0.95rem] font-semibold text-secondary">{t.promise}</p>
         </div>
         <HeroShapes alts={t.heroAlts} tonight={t.chatTonight} />
       </Container>

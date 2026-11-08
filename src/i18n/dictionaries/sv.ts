@@ -8,10 +8,17 @@ const sv = {
     description:
       "Vi finns här för dig som är 13–25 år och har det tufft hemma, i skolan eller med dig själv. Chatta, sms:a, mejla eller ring – gratis och anonymt.",
   },
+  since: "Sedan {year}",
+  sinceLong: "Ideell förening sedan {year}",
+  psychologist: {
+    cta: "Maila en psykolog",
+    lead: "Hellre skriva i lugn och ro?",
+    action: "Maila",
+  },
   skipLink: "Hoppa till innehållet",
   banner: {
     lead: "Behöver du prata?",
-    cta: "Chatta med oss kl. {hours}",
+    cta: "Chatta med oss lör–sön kl. {hours}",
   },
   nav: {
     label: "Huvudmeny",
@@ -60,6 +67,7 @@ const sv = {
     opens: "Öppnar {time}",
     everyDay: "Alla dagar",
     weekdays: "Mån–fre",
+    weekend: "Lör–sön",
   },
   channels: {
     title: "Få stöd",
@@ -145,13 +153,12 @@ const sv = {
     orgNr: "Org.nr",
     trustTitle: "Trygg givare",
     trustText:
-      "Vi har 90-konto och granskas av Svensk Insamlingskontroll. Minst 75 % av alla gåvor går till vårt ändamål.",
+      "Vi granskas av Svensk Insamlingskontroll. Minst 75 % av alla gåvor går till vårt ändamål.",
     rights: "Alla rättigheter förbehållna.",
     privacy: "Integritetspolicy",
     bylaws: "Stadgar",
     reports: "Årsredovisningar",
     badges: {
-      ninety: "90-konto",
       insamling: "Svensk Insamlingskontroll",
       giva: "Medlem i Giva Sverige",
       placeholder: "platshållare",

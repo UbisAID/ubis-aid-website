@@ -160,6 +160,16 @@ export function Marquee({ items, className }: { items: string[]; className?: str
   );
 }
 
+/** "Sedan 2012": the founding year in red serif italics, set with a short rule. */
+export function SinceMark({ label, className }: { label: string; className?: string }) {
+  return (
+    <p className={cn("flex items-center gap-3 font-serif text-2xl text-primary italic sm:text-3xl", className)}>
+      <span aria-hidden="true" className="h-px w-10 bg-primary/60" />
+      {label}
+    </p>
+  );
+}
+
 /** Rule with a label, used to separate editorial blocks. */
 export function Rule({ className }: { className?: string }) {
   return <hr className={cn("border-t border-ink/15", className)} />;

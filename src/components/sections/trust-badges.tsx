@@ -1,11 +1,10 @@
-import { BadgeCheck, ShieldCheck, HandHeart } from "lucide-react";
+import { ShieldCheck, HandHeart } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries/sv";
-import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
  * Placeholder trust marks. Replace each with the official artwork once the
- * association holds the 90-account / Giva Sverige membership. Do not show
+ * association holds the Giva Sverige membership. Do not show
  * official logos until you are approved.
  */
 export function TrustBadges({
@@ -19,7 +18,6 @@ export function TrustBadges({
 }) {
   const b = dict.footer.badges;
   const items = [
-    { icon: BadgeCheck, title: b.ninety, sub: site.giving.plusgiro },
     { icon: ShieldCheck, title: b.insamling, sub: b.placeholder },
     { icon: HandHeart, title: b.giva, sub: b.placeholder },
   ];

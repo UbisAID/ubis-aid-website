@@ -7,9 +7,10 @@ import { resolveLocale } from "@/i18n/resolve";
 import { getData, tr, type Person, type Report } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { fill } from "@/i18n/fill";
 import { withBase } from "@/lib/base-path";
 import { PageHeader } from "@/components/sections/page-header";
-import { Container, Section, SectionHeading } from "@/components/sections/primitives";
+import { Container, Section, SectionHeading, SinceMark } from "@/components/sections/primitives";
 import { Photo } from "@/components/sections/photo";
 import { TrustBadges } from "@/components/sections/trust-badges";
 
@@ -111,7 +112,9 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/om-oss"
         lead={t.lead}
         tint="butter"
         aside={<Photo query="community group around table warm" alt={t.photoAlt} tint="butter" className="aspect-[4/3]" priority />}
-      />
+      >
+        <SinceMark label={fill(dict.sinceLong, { year: site.foundedYear })} />
+      </PageHeader>
 
       <Section labelledBy="mission-title" className="pt-4">
         <Container>

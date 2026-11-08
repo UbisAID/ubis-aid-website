@@ -3,6 +3,7 @@ import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/sv";
 import { ButtonLink } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { site } from "@/lib/site";
 import { TrustPills } from "./support-channels";
 
 /** The "talk to us" box placed after every article and topic. */
@@ -34,6 +35,12 @@ export function TalkCta({
           {dict.talkCta.secondary}
         </ButtonLink>
       </div>
+      <p className="mt-5 text-[0.95rem]">
+        {dict.psychologist.lead}{" "}
+        <a href={`mailto:${site.contact.email}`} className="font-semibold text-secondary underline underline-offset-4">
+          {dict.psychologist.cta}
+        </a>
+      </p>
     </aside>
   );
 }

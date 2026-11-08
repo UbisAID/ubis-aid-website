@@ -148,7 +148,7 @@ Varje push till `main` bygger en statisk förhandsvisning och publicerar den på
 - [ ] Ersätt alla `[PLATSHÅLLARE]` i `src/lib/site.ts` (adress, Swish, plusgiro, öppettider, sociala länkar).
 - [ ] Byt `public/icon.svg` och `public/logo.svg` mot riktig logotyp.
 - [ ] Byt Pexels-bilderna mot egna foton med modellsamtycke (komponenten `Photo` i `src/components/sections/photo.tsx`).
-- [ ] Byt platshållarna för 90-konto, Svensk Insamlingskontroll och Giva Sverige (`trust-badges.tsx`) mot officiella märken. Visa dem först när föreningen är godkänd.
+- [ ] Byt platshållarna för Svensk Insamlingskontroll och Giva Sverige (`trust-badges.tsx`) mot officiella märken. Visa dem först när föreningen är godkänd.
 - [ ] Ersätt effektsiffrorna på startsidan och fördelningen på gåvosidan med verkliga data.
 - [ ] Ladda upp riktiga årsredovisningar i `public/dokument/` och uppdatera `content/data/reports.json`.
 - [ ] Låt jurist granska integritetspolicyn och stadgarna. Fyll i lagringstider `[X]`.

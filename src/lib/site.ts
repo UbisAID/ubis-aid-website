@@ -10,7 +10,7 @@ export const site = {
   city: "Malmö",
   /** Länsäte (county of registration). */
   county: "Skåne län",
-  foundedYear: 2016,
+  foundedYear: 2012,
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 
   address: {
@@ -22,11 +22,11 @@ export const site = {
   },
 
   contact: {
-    email: "hej@exempel.se",
-    supportEmail: "prata@exempel.se",
-    pressEmail: "press@exempel.se",
-    phone: "020-00 00 00",
-    phoneHref: "+46200000000",
+    email: "info@ubisaid.se",
+    supportEmail: "info@ubisaid.se",
+    pressEmail: "info@ubisaid.se",
+    phone: "070-926 16 26",
+    phoneHref: "+46709261626",
     sms: "71000",
     smsHref: "+4671000",
   },
@@ -36,8 +36,8 @@ export const site = {
    * the "open now" badges and the contact page. Day 0 = Sunday.
    */
   hours: {
-    chatLabel: "18–22",
-    chat: { days: [0, 1, 2, 3, 4, 5, 6], open: "18:00", close: "22:00" },
+    chatLabel: "10–12",
+    chat: { days: [6, 0], open: "10:00", close: "12:00" },
     phone: { days: [1, 2, 3, 4, 5], open: "15:00", close: "21:00" },
     sms: { days: [1, 2, 3, 4, 5], open: "15:00", close: "21:00" },
   },

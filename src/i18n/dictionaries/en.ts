@@ -6,10 +6,17 @@ const en: Dictionary = {
     description:
       "We are here for you if you are 13–25 and things are hard at home, at school or inside. Chat, text, email or call – free and anonymous.",
   },
+  since: "Since {year}",
+  sinceLong: "Non-profit association since {year}",
+  psychologist: {
+    cta: "Email a psychologist",
+    lead: "Rather write in your own time?",
+    action: "Email",
+  },
   skipLink: "Skip to content",
   banner: {
     lead: "Need to talk?",
-    cta: "Chat with us {hours}",
+    cta: "Chat with us Sat–Sun {hours}",
   },
   nav: {
     label: "Main menu",
@@ -58,6 +65,7 @@ const en: Dictionary = {
     opens: "Opens {time}",
     everyDay: "Every day",
     weekdays: "Mon–Fri",
+    weekend: "Sat–Sun",
   },
   channels: {
     title: "Get support",
@@ -141,13 +149,12 @@ const en: Dictionary = {
     orgNr: "Reg. no.",
     trustTitle: "Give with confidence",
     trustText:
-      "We hold a 90-account and are monitored by the Swedish Fundraising Control. At least 75% of all gifts go to our cause.",
+      "We are monitored by the Swedish Fundraising Control. At least 75% of all gifts go to our cause.",
     rights: "All rights reserved.",
     privacy: "Privacy policy",
     bylaws: "Bylaws",
     reports: "Annual reports",
     badges: {
-      ninety: "90-account",
       insamling: "Swedish Fundraising Control",
       giva: "Member of Giva Sverige",
       placeholder: "placeholder",

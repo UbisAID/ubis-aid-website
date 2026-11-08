@@ -5,7 +5,8 @@ import type { Dictionary } from "@/i18n/dictionaries/sv";
 import { site } from "@/lib/site";
 import { Logo } from "@/components/brand/logo";
 import { TrustBadges } from "@/components/sections/trust-badges";
-import { Rich } from "@/components/sections/primitives";
+import { Rich, SinceMark } from "@/components/sections/primitives";
+import { fill } from "@/i18n/fill";
 import { CookieSettingsButton } from "./cookie-consent";
 
 export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary }) {
@@ -49,6 +50,7 @@ export function SiteFooter({ locale, dict }: { locale: Locale; dict: Dictionary 
         <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr]">
           <div>
             <Logo alt={site.name} className="h-16" />
+            <SinceMark label={fill(dict.sinceLong, { year: site.foundedYear })} className="mt-5 text-xl sm:text-2xl" />
             <p className="mt-5 max-w-sm text-ink/80">{dict.footer.about}</p>
 
             <h2 className="mt-8 text-base font-semibold">{dict.footer.contact}</h2>

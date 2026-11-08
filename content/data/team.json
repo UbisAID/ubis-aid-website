@@ -3,7 +3,7 @@
     "name": "[Förnamn Efternamn]",
     "role": { "sv": "Verksamhetschef", "en": "Executive director" },
     "text": { "sv": "Socionom med 15 års erfarenhet av ungdomsarbete.", "en": "Social worker with 15 years in youth work." },
-    "email": "namn@exempel.se"
+    "email": "info@ubisaid.se"
   },
   {
     "name": "[Förnamn Efternamn]",
@@ -24,12 +24,12 @@
     "name": "[Förnamn Efternamn]",
     "role": { "sv": "Insamling & partnerskap", "en": "Fundraising & partnerships" },
     "text": { "sv": "Din kontakt för gåvor och företagssamarbeten.", "en": "Your contact for gifts and corporate partnerships." },
-    "email": "givande@exempel.se"
+    "email": "info@ubisaid.se"
   },
   {
     "name": "[Förnamn Efternamn]",
     "role": { "sv": "Kommunikationsansvarig", "en": "Head of communications" },
     "text": { "sv": "Presskontakt och ansvarig för webb och sociala medier.", "en": "Press contact, web and social media." },
-    "email": "press@exempel.se"
+    "email": "info@ubisaid.se"
   }
 ]
