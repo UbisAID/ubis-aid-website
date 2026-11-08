@@ -13,11 +13,12 @@ export const site = {
   foundedYear: 2012,
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 
+  /** Postal/visiting address (the registered seat is `city`/`county` above). */
   address: {
-    street: "[Gatuadress 1]",
-    postalCode: "[123 45]",
-    city: "Malmö",
-    region: "Skåne län",
+    street: "Lummelunda Bruket 506",
+    postalCode: "621 71",
+    city: "Visby",
+    region: "Gotlands län",
     country: "SE",
   },
 
