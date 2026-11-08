@@ -27,8 +27,8 @@ export const site = {
     pressEmail: "info@ubisaid.se",
     phone: "070-926 16 26",
     phoneHref: "+46709261626",
-    sms: "71000",
-    smsHref: "+4671000",
+    sms: "070-926 16 26",
+    smsHref: "+46709261626",
   },
 
   /**
@@ -49,8 +49,8 @@ export const site = {
   quickExitUrl: "https://www.google.com/search?q=v%C3%A4der",
 
   giving: {
-    swishNumber: "123 456 78 90",
-    swishRaw: "1234567890",
+    swishNumber: "070-926 16 26",
+    swishRaw: "0709261626",
     plusgiro: "[90 XX XX-X]",
     presetAmounts: [200, 300, 600],
   },
